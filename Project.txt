@@ -1,0 +1,18 @@
+Spark Project Proposal
+
+Nicholas Zaitz
+
+Theme - A movie website users can interact with to talk about movies in a forum, post user reviews, find reviews from the major review websites, look up release dates, etc.
+
+Use Cases
+
+- post feedback or discussions on a forum
+- look up reviews from other websites through an API (IMDB, Rotten Tomatoes, etc.)
+-find theatrical release date information
+-find DVD release date information
+-Post user movie reviews
+-Search other user reviews
+-Find additional info about movies (director, plot synopsis, etc.)
+-Subscribe to a mailing list
+-Some form of data analytics for user reviews (age, demographic info, etc.)
+-Top lists/blog posts
