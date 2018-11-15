@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>EZMovies</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://bootswatch.com/4/cyborg/bootstrap.min.css" />
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <button type="button" id="toggle" class="btn-sm btn-success">Click to see this weekend's box office results</button>
+    <div class="page-header">
+        <div class="boxoffice">
+          <script type="text/javascript" language="javascript" src="https://www.boxofficemojo.com/data/js/wknd5.php?h=boxheader&amp;r=boxdata"></script>
+        </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar header">
+        <a class="navbar-brand" href="index.html">
+          <img src="https://lewes.lib.de.us/files/2017/07/Movie-reel-film-reel-clipart.jpeg" width="30" height="30" class="d-inline-block align-top"/>
+          EZMovies</a>
+        <a class="nav-link" href="nowplaying.html">Now Playing</a>
+        <a class="nav-link" href="forum.html">Forum</a>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="jumbotron">
+      <h2 class="text-center">Movies in Nearby Theaters</h2>
+      <form id="searchForm2">
+        <h5>Zip Code</h5>
+        <input type="text" class="form-control" id="searchZip" placeholder="Enter Zip (e.g. 12345...)" pattern="[0-9]{5}"/>
+        <br>
+        <h5>Date</h5>
+        <input type="date" class="datepicker" id="searchDate" required>
+      </form>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row" id="showtimes"></div>
+  </div>
+  
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>  
+  <script src="main.js"></script>
+
+</body>
+</html>

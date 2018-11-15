@@ -1,0 +1,22 @@
+.box1{
+    padding:10px;
+    height: 400px;
+    width: 400px;
+    background-image: linear-gradient(to bottom right, yellow, black);
+}
+
+body {
+    background-color: black;
+}
+
+.boxDiv {
+    padding: 20px;
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    border-color: greenyellow;
+    background-color: red;
+    margin: 5px;
+    border-width: 3px;
+    border-style: solid;
+}

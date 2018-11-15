@@ -1,0 +1,58 @@
+#movies img, #movie img {
+    width: 100%;
+}
+@media(min-width:960px){
+
+    #movies .col-md-3 .well{
+        height: 400px;
+    }
+
+    #movies .col-md-3 img{
+        height: 260px;
+    }
+}
+
+.nav-link {
+    color : aliceblue;
+}
+
+body {
+    background-image : url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/vfPFP3W/movie-theater-film-reel-background-in-seamless-loop_xk6ivnb9__F0000.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.well img:not(.thumbnail) {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIgwGydXHNsRrFoja3K-MeJW-aOcDjdt59ZWYfjBaE2nXZOX7l");
+    height: 240px;
+    width: 200px;
+}
+
+.page-header .boxheader {
+    background-color: black;
+    color: aliceblue;
+}
+
+.page-header .boxdata {
+    background-color: black;
+    color: aliceblue;
+}
+
+.page-header {
+    text-align: center;
+}
+
+.boxoffice {
+    display: inline-block;
+}
+
+#plot {
+    color: aliceblue;
+}
+
+.jumbotron {
+    background-image: url("http://www.basingstokegym.co.uk/wp-content/uploads/2017/10/movie-background.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}

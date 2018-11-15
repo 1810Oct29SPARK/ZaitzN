@@ -1,0 +1,206 @@
+* {
+    box-sizing: border-box;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+    border-right: 1px solid gray;
+}
+
+li:last-child {
+    border-right: none;
+    border-left: 1px solid gray;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none; 
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+body {
+    background-image: url("Space.png");
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-attachment: fixed;
+    color: aliceblue;
+
+}
+
+#word-aside-box {
+    margin: auto;
+    position: relative;
+
+}
+
+.Wordstuff {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 50%;
+    background-color: rgba(128, 128, 128, 0.5);
+    text-align: center;
+    padding: 2%;
+    border: 2px ridge aliceblue;
+    height: 600px;
+}
+
+.Asides {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    background-color: rgba(119, 136, 153, 0.5);
+    text-align: center;
+    padding: 2%;
+    border: 2px ridge aliceblue;
+    height: 600px;
+}
+
+#main {
+    margin: auto;
+}
+
+#main-head {
+    margin: auto;
+}
+
+#footer-box {
+    margin: auto;
+    position: relative;
+}
+
+#footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    border: 2px ridge aliceblue;
+    background-color: rgba(169, 169, 169, 0.1);
+    padding: 20px; 
+}
+
+a:visited:not(.active), footer a:link:not(.active) {
+    background-color: darkblue;
+    color: aliceblue;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+footer a:hover:not(.active), a:active {
+    background-color: aqua;
+    color: black;
+}
+
+.active{
+    background-color: rgb(2, 10, 48);
+}
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    background-color: rgba(128, 128, 128, 0.5);
+    color: aliceblue;
+}
+
+::placeholder {
+    color: aliceblue;
+}
+
+input[type=email] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    background-color: rgba(128, 128, 128, 0.5);
+    color: aliceblue;
+}
+
+input[type=submit] {
+    background-color: darkblue;
+    color: aliceblue;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: aqua;
+    color:black;
+}
+
+.container {
+    border-radius: 10px;
+    border: 2px ridge aliceblue;
+    background-color: rgba(169, 169, 169, 0.1);
+    padding: 20px;
+    width: 50%;
+}
+
+#tableInfo {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    background-color: rgba(169, 169, 169, 0.1)
+}
+
+#tableInfo th, #tableInfo td {
+    border: 1px ridge aliceblue;
+    padding: 8px;
+}
+
+#tableInfo tr:nth-child(even) {
+    background-color: rgba(128, 128, 128, 0.5);
+}
+
+#tableInfo tr:hover {
+    background-color: gray;
+}
+
+#tableInfo th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: black;
+    color: aliceblue;
+}
+
+#tableInfo {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+span {
+    text-align: center;
+}
+
+table{
+    font-size: 10pt;
+}
+
+

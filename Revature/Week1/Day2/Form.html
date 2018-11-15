@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <form action="" method="POST">
+        <!--text is actually the default input type-->
+        <input type="text" name="text1"/>
+        <br><br>
+        <input type="email" name="email"/>
+        <br><br>
+        <input type="password" name="myPassword"/>
+        <!--value attribute determines what text will be on the button-->
+        <br><br>
+        Radio Buttons:
+        <br>
+        <input type="radio" name="penguinType" value="emperor"/>Emperor<br>
+        <input type="radio" name="penguinType" value="macaroni"/>Macaroni<br>
+        <input type="radio" name="penguinType" value="rockhopper"/>Rockhopper<br>
+        Check Boxes:
+        <br>
+        <input type="checkbox" name="cactusType" value="saguaro"/>Saguaro<br>
+        <input type="checkbox" name="cactusType" value="pricklypear"/>Prickly Pear<br>
+        <input type="checkbox" name="cactusType" value="christmas"/>Christmas<br>
+        <!--value determines name on the button-->       
+        <input type="submit" value="Submit"/>
+    </form>
+    
+    <br>
+    <br>
+
+    <form action="https://www.boxofficemojo.com/search/" method="GET">
+        <input type="text" name="q"/>
+        <input type="submit" value="Movie Search"/>
+
+    </form>
+    
+    <br>
+    <br>
+
+    <form action="Congrats.html" method="POST">
+        <input type="radio" name="theButton" value="clickme"/>Click me to complete form.<br>
+        <input type="submit" value="Finish"/>
+    </form>
+</body>
+</html>

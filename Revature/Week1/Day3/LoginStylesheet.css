@@ -1,0 +1,25 @@
+.LoginInfo{
+    padding:10px;
+    border-radius: 25px;
+    margin: 40px;
+    border-style: ridge;
+    border-width: 3px;
+    border-color: blue;
+    background-color:black;
+    width:480px;
+    display:block;
+    text-align:center;
+     
+}
+body{
+    background-image:url("https://usa.yamaha.com/files/drum_sets_1200x480_929f57203573f25ad6c6924da465211c.jpg");
+
+}
+
+.ID{
+    color: green;
+}
+
+.Welcome{
+    color: aqua;
+}
