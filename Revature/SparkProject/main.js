@@ -64,6 +64,7 @@ function getMovies(searchText) {
            let movies = response.data.Search;
            let output = '';
            $.each(movies, (index, movie) => {
+               console.log(movie);
                 output +=`
                 <div class="col-md-3">
                     <div class="well text-center">
@@ -131,4 +132,55 @@ function getMovie() {
     });
        
     
+}
+
+document.getElementById('reviewForm').addEventListener('submit', saveReview);
+
+function saveReview() {
+
+    let title = $('#titleInput').val();
+    let score = $('#scoreInput').val();
+    let review = $('#reviewInput').val();
+
+    let fullReview = {
+    title: title,
+    score: score,
+    review: review,
+    }
+//Credit to CodingTheSmartWay on YouTube for this section
+    if (localStorage.getItem('reviews') == null) {
+        var reviews = [];
+        reviews.push(fullReview);
+        localStorage.setItem('reviews', JSON.stringify(reviews));
+    } else {
+        var reviews = JSON.parse(localStorage.getItem('reviews'));
+        reviews.push(fullReview);
+        localStorage.setItem('reviews', JSON.stringify(reviews));
+    }
+
+        document.getElementById('reviewForm').reset();
+
+        fetchReviews();
+
+}
+
+fetchReviews();
+
+function fetchReviews() {
+    let reviews = JSON.parse(localStorage.getItem('reviews'));
+    let reviewList = document.getElementById('reviewList');
+
+    reviewList.innerHTML = '';
+
+    for (i = 0; i < reviews.length; i++) {
+        let title = reviews[i].title;
+        let score = reviews[i].score;
+        let review = reviews[i].review;
+
+    reviewList.innerHTML += '<div class="container text-center" id="reviewItems">'+
+                            '<h2>' + title + '</h2>'+
+                            '<h4>' + score + '</h4>'+
+                            '<h5>' + review + '</h5>'+
+                            '</div>';
+    }
 }
