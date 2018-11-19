@@ -21,31 +21,27 @@ $('#toggle').click(function(){
 
 $('.page-header').hide();
 
+let showtimes = {};
+let movietitle = {};
+
 
 function getTheaters(searchZip, searchDate) {
     axios.get('http://data.tmsapi.com/v1.1/movies/showings?startDate=' + searchDate + '&zip=' + searchZip + '&radius=25&api_key=6gypawk2vqkakzfyyd3s5pqj')
         .then((response) => {
             console.log(response);
-            let movies2 = response.data;
+            showtimes = response.data;
             let output = '';
-            $.each(movies2, (index, movie1) => {
-                let movietitle = movie1.title;
-                axios.get('http://www.omdbapi.com/?apikey=a85b3fc2&t=' + movietitle)
-                    .then((response) => {
-                        console.log(response);
-                        let thePoster = response.data;
-                        let posterUrl = thePoster.Poster;
-                        sessionStorage.setItem('pUrl', posterUrl);
-                    });
+            $.each(showtimes, (index, movie1) => {
+                movietitle += movie1.title;
                 $.each(movie1.showtimes, (c, times) => {
-                    let finalUrl = sessionStorage.getItem('pUrl');
                     output +=` 
                         <div class="col-md-3">
                             <div class="well text-center">
-                                <img src="${finalUrl}" alt="No poster found!"/>
+                                <img src="" alt="No poster found!"/>
                                 <h5>${movie1.title}</h5>                        
                                 <h6>${times.dateTime}</h6>
                                 <h6>${times.theatre.name}</h6>
+                                <a href="${times.ticketURI}" target="_blank" class="btn btn-primary btn-sm">Buy Tickets</a>
                             </div>
                         </div>
                     `;
@@ -55,6 +51,7 @@ function getTheaters(searchZip, searchDate) {
             $('#showtimes').html(output);
         });
 }
+
 
 //Credit to Traversy Media on YouTube for help with this section
 function getMovies(searchText) {
