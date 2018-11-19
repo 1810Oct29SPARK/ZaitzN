@@ -41,7 +41,7 @@ function getTheaters(searchZip, searchDate) {
                     let finalUrl = sessionStorage.getItem('pUrl');
                     output +=` 
                         <div class="col-md-3">
-                            <div class="container text-center">
+                            <div class="well text-center">
                                 <img src="${finalUrl}" alt="No poster found!"/>
                                 <h5>${movie1.title}</h5>                        
                                 <h6>${times.dateTime}</h6>
@@ -164,7 +164,12 @@ function saveReview() {
 
 }
 
-fetchReviews();
+function deleteReview() {
+    let reviews = JSON.parse(localStorage.getItem('reviews'));
+    reviews.splice(0, 1);
+    localStorage.setItem('reviews', JSON.stringify(reviews));
+    fetchReviews();
+}
 
 function fetchReviews() {
     let reviews = JSON.parse(localStorage.getItem('reviews'));
@@ -178,6 +183,7 @@ function fetchReviews() {
         let review = reviews[i].review;
 
     reviewList.innerHTML += '<div class="container text-center" id="reviewItems">'+
+                            '<a href="#" onclick="deleteReview()" class ="btn btn-danger btn-sm">Delete</a>' +
                             '<h2>' + title + '</h2>'+
                             '<h4>' + score + '</h4>'+
                             '<h5>' + review + '</h5>'+
