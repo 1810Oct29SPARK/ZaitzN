@@ -63,3 +63,10 @@ body {
     margin: 10px;
 }
 
+.appendTarget img{
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIgwGydXHNsRrFoja3K-MeJW-aOcDjdt59ZWYfjBaE2nXZOX7l");
+    height: 240px;
+    width: 200px;
+    margin: 10px;
+}
+

@@ -22,22 +22,44 @@ $('#toggle').click(function(){
 $('.page-header').hide();
 
 let showtimes = {};
-let movietitle = {};
+let something = {};
+//document.getElementsByClassName(appendTarget) 
+//iterate throught list of elements
+//for each one....
+//select first child and get inner text (the movie title)
 
+
+function attemptTwo(){
+    something = document.getElementsByClassName("appendTarget");
+    console.log(something);
+    for(i = 0; i < something.length; i++){
+        let slide = i;
+        axios.get('http://www.omdbapi.com/?apikey=a85b3fc2&t=' + something[i].childNodes[1].innerText)
+            .then((response) => {
+                console.log(response);
+                let poster = response.data.Poster;
+                console.log(poster);
+                $.each($('#index div.appendTarget'), function(ind) {
+                    $(this).attr('id', 'slide-' + parseInt(ind));
+                 });
+                $('#slide-'+slide).prepend(`<img src="${poster}"/>`)
+            })
+    } 
+}
+
+$(document).bind('function1-complete', attemptTwo);
 
 function getTheaters(searchZip, searchDate) {
     axios.get('http://data.tmsapi.com/v1.1/movies/showings?startDate=' + searchDate + '&zip=' + searchZip + '&radius=25&api_key=6gypawk2vqkakzfyyd3s5pqj')
-        .then((response) => {
+        .then((response) => { 
             console.log(response);
             showtimes = response.data;
             let output = '';
             $.each(showtimes, (index, movie1) => {
-                movietitle += movie1.title;
                 $.each(movie1.showtimes, (c, times) => {
                     output +=` 
-                        <div class="col-md-3">
-                            <div class="well text-center">
-                                <img src="" alt="No poster found!"/>
+                        <div id="index" class="col-md-3">
+                            <div class="appendTarget well text-center">
                                 <h5>${movie1.title}</h5>                        
                                 <h6>${times.dateTime}</h6>
                                 <h6>${times.theatre.name}</h6>
@@ -49,6 +71,7 @@ function getTheaters(searchZip, searchDate) {
             });
 
             $('#showtimes').html(output);
+            $(document).trigger('function1-complete');
         });
 }
 
