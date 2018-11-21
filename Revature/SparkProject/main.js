@@ -71,7 +71,7 @@ function getTheaters(searchZip, searchDate) {
             });
 
             $('#showtimes').html(output);
-            $(document).trigger('function1-complete');
+            $(document).trigger('function1-complete'); 
         });
 }
 
