@@ -22,7 +22,10 @@ public class Car extends Vehicle implements Steerable {
 	private double milesSinceOilChange;
 
 	@Override
-	public void move() {
+	public void move() throws MaintenanceException {
+		if(this.milesSinceOilChange >= recommendedMilesBetweenOilChanges) {
+			throw new MaintenanceException("oil needs to be changed");
+		}
 		System.out.println("car is moving");
 	}
 

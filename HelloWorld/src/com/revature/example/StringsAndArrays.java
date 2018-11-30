@@ -15,7 +15,13 @@ public class StringsAndArrays {
 		for(int i=0;i<arr2.length;i++) {
 			arr2[i] = "element "+i;
 		}
-		System.out.println(Arrays.toString(arr2));
+		System.out.println(Arrays.toString(arr1));
+		
+		int [][] arr3 = new int[4][3];
+		arr3 [0][0] = 7;
+		arr3 [0][2] = 8;
+		arr3 [3][0] = 9;
+		arr3 [3][2] = 10;
 	}
 	
 	static void funWithStrings() {

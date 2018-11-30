@@ -14,6 +14,6 @@ public abstract class Vehicle {
 	/*
 	 * I will have to implement this method in the first concrete subclass
 	 */
-	public abstract void move();
+	public abstract void move() throws MaintenanceException;
 
 }

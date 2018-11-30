@@ -2,6 +2,11 @@ package com.revature.transport;
 
 public class MaintenanceException extends Exception {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1216601307610560902L;
+
 	public MaintenanceException() {
 	}
 
