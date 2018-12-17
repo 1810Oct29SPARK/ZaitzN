@@ -10,19 +10,11 @@ import java.util.Properties;
 
 public class ConnectionUtil {
 
-	//this is terrible, don't ever do this for real
-	public static Connection getConnection() throws SQLException {
-		String url = "jdbc:oracle:thin:@nzaitzspark.cihgqshskyal.us-east-1.rds.amazonaws.com:1521:orcl";
-		String user = "admin";
-		String pass = "topsecretpassword";
-		return DriverManager.getConnection(url, user, pass);
-	}
-	
 	public static Connection getConnection(String filename) throws SQLException, IOException {
 		Properties prop = new Properties();
 		InputStream in = new FileInputStream(filename);
 		prop.load(in);
 		return DriverManager.getConnection(prop.getProperty("url"), prop.getProperty("username"), prop.getProperty("password"));
 	}
-	
-} 
+
+}

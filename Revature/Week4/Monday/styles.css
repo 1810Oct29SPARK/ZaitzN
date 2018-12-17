@@ -1,0 +1,27 @@
+.well img {
+    background-image: url("http://www.derdafoods.com/static/backend/img/meal-placeholder.jpg");
+    height: 240px;
+    width: 200px;
+}
+
+body {
+    background-image : url("https://images.pexels.com/photos/349610/pexels-photo-349610.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+}
+
+.col-md-3 {
+    margin-bottom: 5px;
+}
+
+h5 {
+    color: black;
+}
+
+.jumbotron {
+    background-image : url("https://image.freepik.com/free-photo/various-mexican-food-on-dark-background_23-2147740705.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+}
