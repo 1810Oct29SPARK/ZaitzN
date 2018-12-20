@@ -2,7 +2,7 @@ package com.revature.beans;
 
 public class Employee {
 
-	public Employee(int id, String firstName, String lastName, String email, int roleId, String userName, String password) {
+	public Employee(int id, String firstName, String lastName, String email, Role roleId, String userName, String password) {
 		
 		super();
 		this.id = id;
@@ -18,7 +18,7 @@ public class Employee {
 	private String firstName;
 	private String lastName;
 	private String email;
-	private int roleId;
+	private Role roleId;
 	private String userName;
 	private String password;
 	
@@ -46,10 +46,10 @@ public class Employee {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getRoleId() {
+	public Role getRoleId() {
 		return roleId;
 	}
-	public void setRoleId(int roleId) {
+	public void setRoleId(Role roleId) {
 		this.roleId = roleId;
 	}
 	public String getUserName() {
