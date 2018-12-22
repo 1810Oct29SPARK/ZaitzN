@@ -1,0 +1,15 @@
+body {
+    background-image: url("https://images.pexels.com/photos/990818/pexels-photo-990818.jpeg?cs=srgb&dl=agenda-analysis-business-990818.jpg&fm=jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.jumbotron {
+    opacity: 0.98;
+    margin: 0px;
+}
+
+#loginBox {
+    display: none;
+}

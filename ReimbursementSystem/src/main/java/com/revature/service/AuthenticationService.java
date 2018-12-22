@@ -16,12 +16,9 @@ public class AuthenticationService {
 		String password = credentials.getPassword();
 		// this is AUTHENTICATION (does the user exist in the system?)
 		// now AUTHORIZATION (what can the user access within the system?) (user roles)
-		if (username != null && password != null) {
-			// for now... this is fake!
 
-			u = new Employee(5, "Merlin", "cat", "a@a.com", new Role(1, "Employee"), username, password);
-
-		}
+		BusinessDelegate bd = new BusinessDelegate();
+		u = bd.getEmployeeByUsername(username);
 
 		return u;
 

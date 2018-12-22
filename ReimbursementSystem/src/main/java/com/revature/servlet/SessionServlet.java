@@ -31,7 +31,9 @@ public class SessionServlet extends HttpServlet {
 				String firstname = session.getAttribute("firstName").toString();
 				String lastname = session.getAttribute("lastName").toString();
 				String email = session.getAttribute("email").toString();
-				Employee e = new Employee(id, firstname, lastname, email, new Role(1, "Employee"), null, null);
+				int roleId = (int) session.getAttribute("roleId");
+				String roleTitle = session.getAttribute("roleTitle").toString();
+				Employee e = new Employee(id, firstname, lastname, email, new Role(roleId, roleTitle), null, null);
 				response.getWriter().write(new ObjectMapper().writeValueAsString(e));
 
 			} catch (Exception e) {

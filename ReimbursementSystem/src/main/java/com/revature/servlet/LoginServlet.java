@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import com.revature.beans.Credentials;
 import com.revature.beans.Employee;
 import com.revature.service.AuthenticationService;
+import com.revature.service.BusinessDelegate;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -22,6 +23,7 @@ public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = -4008501494161108628L;
 	
 	AuthenticationService authService = new AuthenticationService();
+	BusinessDelegate bd = new BusinessDelegate();
 
 	//return login page for get request
 	@Override
@@ -40,14 +42,17 @@ public class LoginServlet extends HttpServlet {
 		HttpSession session = req.getSession();
 		resp.setContentType("text/html");
 		//grab params from request
-		Credentials cred = new Credentials(req.getParameter("username"), req.getParameter("password"));
-		Employee u = (authService.isValidEmployee(cred));
+		Credentials c = new Credentials(req.getParameter("username"), req.getParameter("password"));
+		Employee u = authService.isValidEmployee(c);
+		System.out.println(u);
 		if (u != null) {
-			session.setAttribute("userName", u.getUserName());
+			session.setAttribute("username", u.getUserName());
 			session.setAttribute("firstName", u.getFirstName());
 			session.setAttribute("lastName", u.getLastName());
 			session.setAttribute("id", u.getId());
 			session.setAttribute("email", u.getEmail());
+			session.setAttribute("roleId", u.getRoleId().getRoleId());
+			session.setAttribute("roleTitle", u.getRoleId().getRoleName());
 			resp.sendRedirect("profile");
 			
 		} else {

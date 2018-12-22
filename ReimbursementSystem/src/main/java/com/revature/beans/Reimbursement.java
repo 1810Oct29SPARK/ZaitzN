@@ -1,16 +1,14 @@
 package com.revature.beans;
 
-import java.util.Arrays;
+
 
 public class Reimbursement {
 
-	public Reimbursement(int id, double amount, String description, byte[] blob, Employee employeeId, Status statusId,
-			Employee resolverId) {
+	public Reimbursement(int id, double amount, String description, Employee employeeId, Status statusId, Employee resolverId) {
 		super();
 		this.id = id;
 		this.amount = amount;
 		this.description = description;
-		this.blob = blob;
 		this.employeeId = employeeId;
 		this.statusId = statusId;
 		this.resolverId = resolverId;
@@ -19,7 +17,6 @@ public class Reimbursement {
 	private int id;
 	private double amount;
 	private String description;
-	private byte[] blob;
 	private Employee employeeId;
 	private Status statusId;
 	private Employee resolverId;
@@ -42,12 +39,7 @@ public class Reimbursement {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public byte[] getBlob() {
-		return blob;
-	}
-	public void setBlob(byte[] blob) {
-		this.blob = blob;
-	}
+
 	public Employee getEmployeeId() {
 		return employeeId;
 	}
@@ -68,9 +60,8 @@ public class Reimbursement {
 	}
 	@Override
 	public String toString() {
-		return "Reimbursement [id=" + id + ", amount=" + amount + ", description=" + description + ", blob="
-				+ Arrays.toString(blob) + ", employeeId=" + employeeId + ", statusId=" + statusId + ", resolverId="
-				+ resolverId + "]";
+		return "Reimbursement [id=" + id + ", amount=" + amount + ", description=" + description + 
+				", employeeId=" + employeeId + ", statusId=" + statusId + ", resolverId=" + resolverId + "]";
 	}
 
 }

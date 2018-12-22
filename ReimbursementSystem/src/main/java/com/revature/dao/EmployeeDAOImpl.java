@@ -73,6 +73,35 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		return em;
 	}
 
+	@Override
+	public Employee getEmployeeByUsername(String username) {
+		Employee em = null;
+		try (Connection con = ConnectionUtil.getConnection(filename)) {
+			String sql = "SELECT E.EMPLOYEEID, E.FIRSTNAME, E.LASTNAME, E.EMAIL, E.ROLEID, ER.EMPLOYEE_TITLE FROM EMPLOYEE E " + 
+					"INNER JOIN EMPLOYEE_ROLES ER " + 
+					"ON E.ROLEID = ER.EMPLOYEE_ROLEID WHERE E.EMPLOYEE_USERNAME = ?";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, username  );
+			ResultSet rs = pstmt.executeQuery();
+			if (rs.next()) {
+				int employeeId = rs.getInt("EMPLOYEEID");
+				String firstName = rs.getString("FIRSTNAME");
+				String lastName = rs.getString("LASTNAME");
+				String email = rs.getString("EMAIL");
+				int roleId = rs.getInt("ROLEID");
+				String title = rs.getString("EMPLOYEE_TITLE");
+				String user = null;
+				String pass = null;
+				em = new Employee(employeeId, firstName, lastName, email, new Role(roleId, title), user, pass);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return em;
+	}
+
 
 
 }
