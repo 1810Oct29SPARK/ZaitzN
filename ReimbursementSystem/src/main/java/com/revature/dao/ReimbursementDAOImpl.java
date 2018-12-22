@@ -143,11 +143,4 @@ public class ReimbursementDAOImpl implements ReimbursementDAO {
 		return list;
 	}
 
-	@Override
-	public void updateReimbursement(Reimbursement r, int employeeId) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
 }

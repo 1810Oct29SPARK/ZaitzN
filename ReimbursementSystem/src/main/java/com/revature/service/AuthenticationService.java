@@ -18,7 +18,7 @@ public class AuthenticationService {
 		// now AUTHORIZATION (what can the user access within the system?) (user roles)
 
 		BusinessDelegate bd = new BusinessDelegate();
-		u = bd.getEmployeeByUsername(username);
+		u = bd.getEmployeeByUserAndPass(username, password);
 
 		return u;
 

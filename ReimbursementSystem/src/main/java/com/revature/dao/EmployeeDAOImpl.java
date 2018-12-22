@@ -74,14 +74,15 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	}
 
 	@Override
-	public Employee getEmployeeByUsername(String username) {
+	public Employee getEmployeeByUserAndPass(String username, String password) {
 		Employee em = null;
 		try (Connection con = ConnectionUtil.getConnection(filename)) {
 			String sql = "SELECT E.EMPLOYEEID, E.FIRSTNAME, E.LASTNAME, E.EMAIL, E.ROLEID, ER.EMPLOYEE_TITLE FROM EMPLOYEE E " + 
 					"INNER JOIN EMPLOYEE_ROLES ER " + 
-					"ON E.ROLEID = ER.EMPLOYEE_ROLEID WHERE E.EMPLOYEE_USERNAME = ?";
+					"ON E.ROLEID = ER.EMPLOYEE_ROLEID WHERE E.EMPLOYEE_USERNAME = ? AND EMPLOYEE_PASSWORD = ?";
 			PreparedStatement pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, username  );
+			pstmt.setString(1, username);
+			pstmt.setString(2, password);
 			ResultSet rs = pstmt.executeQuery();
 			if (rs.next()) {
 				int employeeId = rs.getInt("EMPLOYEEID");

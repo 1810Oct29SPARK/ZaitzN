@@ -9,7 +9,6 @@ public class Test {
 		EmployeeDAO ed = new EmployeeDAOImpl();
 		System.out.println(ed.getEmployees());
 		System.out.println(ed.getEmployeeById(3));
-		System.out.println(bd.getEmployeeByUsername("eshankland0"));
 		
 	}
 
