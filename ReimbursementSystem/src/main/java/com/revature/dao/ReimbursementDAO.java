@@ -12,6 +12,6 @@ public interface ReimbursementDAO {
 	public void deleteReimbursementById(int id);
 	public List<Reimbursement> getAllReimbursements();
 	public Reimbursement getReimbursementById(int id);
-	public List<Reimbursement> getReimbursementsByEmpId(Employee e);
+	public List<Reimbursement> getReimbursementsByEmpId(int id);
 
 }

@@ -122,17 +122,17 @@ public class ReimbursementDAOImpl implements ReimbursementDAO {
 	}
 	
 	@Override
-	public List<Reimbursement> getReimbursementsByEmpId(Employee em){
+	public List<Reimbursement> getReimbursementsByEmpId(int id){
 		List<Reimbursement> list = new ArrayList<Reimbursement>();
 		try(Connection con = ConnectionUtil.getConnection(filename)){
 			String sql = "SELECT REIMB_ID, REIMB_AMOUNT, REIMB_DESC, EMPLOYEEID, REIMB_STATUS, REIMB_RESOLVER " + 
 						"FROM REIMBURSEMENTS WHERE EMPLOYEEID = ?";
 			PreparedStatement pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, em.getId());
+			pstmt.setInt(1, id);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
 				int reimbId = rs.getInt("REIMB_ID");
-				double amount = rs.getDouble("EMPLOYEE_ID");
+				double amount = rs.getDouble("REIMB_AMOUNT");
 				String reimbDesc = rs.getString("REIMB_DESC");
 				int employeeId = rs.getInt("EMPLOYEEID");
 				int status = rs.getInt("REIMB_STATUS");

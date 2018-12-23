@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.revature.beans.Employee;
 import com.revature.beans.Reimbursement;
+import com.revature.beans.Status;
 import com.revature.dao.EmployeeDAO;
 import com.revature.dao.EmployeeDAOImpl;
 import com.revature.dao.ReimbursementDAO;
@@ -62,11 +63,16 @@ public class BusinessDelegate {
 			return r;
 			
 		}
-		public List<Reimbursement> getReimbursementsByEmpId(Employee e){
+		public List<Reimbursement> getReimbursementsByEmpId(int id){
 			
-			List<Reimbursement> reimbs = rd.getReimbursementsByEmpId(e);
+			List<Reimbursement> reimbs = rd.getReimbursementsByEmpId(id);
 			return reimbs;
-			
+		}
+		
+		public String getStatusName(int id) {
+			Status name = sd.getStatusById(id);
+			String actualName = name.getName();
+			return actualName;
 		}
 
 		
