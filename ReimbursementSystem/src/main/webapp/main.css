@@ -6,7 +6,7 @@ body {
 }
 
 .jumbotron {
-    opacity: 0.98;
+    opacity: 0.99;
     margin: 0px;
 }
 
@@ -14,11 +14,10 @@ body {
 	display: none;
 }
 
-#footLogout {
-	position: absolute;
-	bottom: 0px;
+#hiddenReimb {
+    display: none;
 }
 
-#hiddenReimb {
+#hiddenEmp {
     display: none;
 }

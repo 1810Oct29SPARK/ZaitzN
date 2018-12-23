@@ -17,12 +17,12 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	private static final String filename = "connection.properties";
 
 	@Override
-	public List<Employee> getEmployees() {
+	public List<Employee> getManagedEmployees() {
 		List<Employee> el = new ArrayList<>();
 		try (Connection con = ConnectionUtil.getConnection(filename)) {
 			String sql = "SELECT E.EMPLOYEEID, E.FIRSTNAME, E.LASTNAME, E.EMAIL, E.ROLEID, ER.EMPLOYEE_TITLE FROM EMPLOYEE E " + 
 					"INNER JOIN EMPLOYEE_ROLES ER " + 
-					"ON E.ROLEID = ER.EMPLOYEE_ROLEID ORDER BY EMPLOYEEID";
+					"ON ER.EMPLOYEE_ROLEID = 1 AND E.ROLEID = 1 ORDER BY EMPLOYEEID";
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {

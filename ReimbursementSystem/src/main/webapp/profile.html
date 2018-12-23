@@ -17,7 +17,7 @@
 	</div>
 	<div class="container">
 		<div class="jumbotron" id="hiddenReimb">
-			<table class="table table-dark">
+			<table class="table table-dark" id="rTable">
 				<thead>
 					<tr>
 						<th>ID</th>
@@ -26,9 +26,10 @@
 						<th>Employee ID</th>
 						<th>Status</th>
 						<th>Resolved By</th>
+						<th>Action</th>
 					</tr>
 				</thead>
-				<tbody id="tableGrab"></tbody>
+				<tbody id="tableGrab1"></tbody>
 			</table>
 			<br>
 			<form action="reimbursement" method="POST">
@@ -36,13 +37,14 @@
 				<input type="text" name="desc" class="form-control" placeholder="Enter Description">
 				<input type="submit" value="Submit Reimbursement" class="btn btn-primary">
 			</form>
+			<br>
+			<form action="logout" method="get">
+				<input type="submit" value="logout" class="btn btn-outline-primary">
+			</form>
 		</div>
 	</div>
-	<div class="container text-center" id="footLogout">
-		<form action="logout" method="get">
-			<input type="submit" value="logout" class="btn btn-light">
-		</form>
-	</div>
+
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 	 crossorigin="anonymous"></script>
 	<script src="check.js"></script>

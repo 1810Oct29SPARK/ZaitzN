@@ -22,7 +22,7 @@ public class BusinessDelegate {
 		public List<Employee> getEmployees() {
 			
 			 List<Employee> employees = new ArrayList<>();
-			employees = ed.getEmployees();
+			employees = ed.getManagedEmployees();
 			return employees;
 			
 		}
@@ -45,8 +45,8 @@ public class BusinessDelegate {
 			rd.addReimbursement(amount, desc, id);
 			
 		}
-		public void updateReimbursement(Reimbursement r, int status, int employeeId) {
-			rd.updateReimbursement(r, status, employeeId);
+		public void updateReimbursement(int rId, int status, int employeeId) {
+			rd.updateReimbursement(rId, status, employeeId);
 			
 		}
 		public void deleteReimbursementById(int id) {

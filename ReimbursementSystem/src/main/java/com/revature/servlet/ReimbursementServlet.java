@@ -37,8 +37,14 @@ public class ReimbursementServlet extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		if (session != null) {
 			int id = (int) session.getAttribute("id");
+			int rId = (int) session.getAttribute("roleId");
+			if (rId == 1) {
 			List<Reimbursement> r = rd.getReimbursementsByEmpId(id);
 			response.getWriter().write(new ObjectMapper().writeValueAsString(r));
+			} else {
+				List<Reimbursement> r = rd.getAllReimbursements();
+				response.getWriter().write(new ObjectMapper().writeValueAsString(r));
+			}
 		}
 
 	}
@@ -55,9 +61,11 @@ public class ReimbursementServlet extends HttpServlet {
 			String desc = request.getParameter("desc");
 			int id = (int) session.getAttribute("id");
 			response.getWriter().print(rd.addReimbursement(amount, desc, id));
+			response.sendRedirect("profile");
 		} else {
 			response.sendRedirect("login");
 		}
 	}
+	
 
 }

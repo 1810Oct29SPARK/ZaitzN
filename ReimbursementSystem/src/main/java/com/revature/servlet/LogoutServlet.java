@@ -27,10 +27,10 @@ public class LogoutServlet extends HttpServlet {
 			session.invalidate();
 		}
 		pw.println("<div class=\"jumbotron\"");
-		pw.println("<p>You are successfully logged out</p>");
-		pw.println("</div>");
-		pw.println("</div>");
+		pw.println("<h2>You are successfully logged out.   </h2>");
 		pw.println("<a href=\"login\" class=\"btn btn-primary\">back to login</a>");
+		pw.println("</div>");
+		pw.println("</div>");
 		pw.println("</body></html>");
 	}
 	

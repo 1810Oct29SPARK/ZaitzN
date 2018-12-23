@@ -38,15 +38,15 @@ public class ReimbursementDAOImpl implements ReimbursementDAO {
 	}
 	
 	@Override
-	public void updateReimbursement(Reimbursement r, int status, int id) {
+	public void updateReimbursement(int rId, int status, int id) {
 		try(Connection con = ConnectionUtil.getConnection(filename)){
 			String sql = "UPDATE REIMBURSEMENTS " + 
 					"SET REIMB_RESOLVER = ?, REIMB_STATUS = ? " + 
-					"WHERE REIMBURSEMENT_ID = ?";
+					"WHERE REIMB_ID = ?";
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, id);
 			pstmt.setInt(2, status);
-			pstmt.setInt(3, r.getId());
+			pstmt.setInt(3, rId);
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -56,18 +56,19 @@ public class ReimbursementDAOImpl implements ReimbursementDAO {
 	}
 	
 	@Override
-	public void deleteReimbursementById(int id) {
+	public int deleteReimbursementById(int id) {
 		try(Connection con = ConnectionUtil.getConnection(filename)){
 			String sql = "DELETE FROM REIMBURSEMENTS " + 
 						"WHERE REIMB_ID = ?";
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, id);
-			pstmt.executeUpdate();
+			return pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (IOException f) {
 			f.printStackTrace();
 		}
+		return -1;
 	}
 	
 	@Override
@@ -81,7 +82,7 @@ public class ReimbursementDAOImpl implements ReimbursementDAO {
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
 				int reimbId = rs.getInt("REIMB_ID");
-				double amount = rs.getDouble("EMPLOYEE_ID");
+				double amount = rs.getDouble("REIMB_AMOUNT");
 				String reimbDesc = rs.getString("REIMB_DESC");
 				int employeeId = rs.getInt("EMPLOYEEID");
 				int status = rs.getInt("REIMB_STATUS");

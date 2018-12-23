@@ -13,11 +13,30 @@
 	<div class="container">
 		<div class="jumbotron text-center" id="grab">
 			<button class="btn btn-primary" id="reimbButton">Click to submit/see reimbursements</button>
+			<button class="btn btn-primary" id="employeeButton">Click to see managed employees</button>
+			<br><br>
+			<form action="logout" method="get">
+				<input type="submit" value="logout" class="btn btn-outline-primary">
+			</form>
 		</div>
 	</div>
 	<div class="container">
+		<div class="jumbotron" id="hiddenEmp">
+			<table class="table table-dark" id="eTable">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Email</th>
+						<th>Title</th>
+					</tr>
+				</thead>
+				<tbody id="eTableGrab"></tbody>
+			</table>
+		</div>
 		<div class="jumbotron" id="hiddenReimb">
-			<table class="table table-dark">
+			<table class="table table-dark" id="rTable">
 				<thead>
 					<tr>
 						<th>ID</th>
@@ -26,9 +45,10 @@
 						<th>Employee ID</th>
 						<th>Status</th>
 						<th>Resolved By</th>
+						<th>Action</th>
 					</tr>
 				</thead>
-				<tbody id="tableGrab"></tbody>
+				<tbody id="tableGrab2"></tbody>
 			</table>
 			<br>
 			<form action="reimbursement" method="POST">
@@ -38,11 +58,8 @@
 			</form>
 		</div>
 	</div>
-	<div class="container text-center" id="footLogout">
-		<form action="logout" method="get">
-			<input type="submit" value="logout" class="btn btn-light">
-		</form>
-	</div>
+
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 	 crossorigin="anonymous"></script>
 	<script src="check.js"></script>
