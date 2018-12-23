@@ -25,24 +25,29 @@ function populateUser() {
 			user = data;
 			console.log(user);
 			output = `
-				<div class="jumbotron text-center">
 				<h3> Welcome ${user.firstName} ${user.lastName}! </h3>
 				<h6> email: ${user.email} </h6>
-				<button class="btn btn-primary" id="reimbButton">Click to submit/see reimbursements</button>
-				</div>
 			`;
 		}
-		$('#grab').html(output);
+		$(document).ready(() => {
+			$('#grab').prepend(output);
+		});
+		
 	});
 
 
 
 
 }
+$(document).ready(() =>{
+	$('#reimbButton').click(()=>{
+		$('#hiddenReimb').slideToggle(1000);
+	});
+});
 
 $(document).ready(() => {
 	$('#login').click(() => {
 		$('#loginBox').slideToggle(1000);
 	});
 
-})
+});

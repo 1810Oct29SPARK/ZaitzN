@@ -26,9 +26,11 @@ public class LogoutServlet extends HttpServlet {
 		if (session != null) {
 			session.invalidate();
 		}
+		pw.println("<div class=\"jumbotron\"");
 		pw.println("<p>You are successfully logged out</p>");
 		pw.println("</div>");
-		pw.println("<a href=\"login\">back to login</a>");
+		pw.println("</div>");
+		pw.println("<a href=\"login\" class=\"btn btn-primary\">back to login</a>");
 		pw.println("</body></html>");
 	}
 	

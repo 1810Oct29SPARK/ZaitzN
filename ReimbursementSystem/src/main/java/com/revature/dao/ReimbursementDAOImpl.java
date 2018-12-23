@@ -18,25 +18,26 @@ public class ReimbursementDAOImpl implements ReimbursementDAO {
 	private StatusDAO s = new StatusDAOImpl();
 
 	private static final String filename = "connection.properties";
-	public void addReimbursement(Reimbursement r) {
+	@Override
+	public int addReimbursement(double amount, String desc, int id) {
 		try(Connection con = ConnectionUtil.getConnection(filename)){
-			String sql = "INSERT INTO REIMBURSEMENTS (REIMB_ID, REIMB_AMOUNT, REIMB_DESC, EMPLOYEEID, REIMB_STATUS, REIMB_RESOLVER) " +  
-					"VALUES(?,?,?,?,?,?)";
+			String sql = "INSERT INTO REIMBURSEMENTS (REIMB_AMOUNT, REIMB_DESC, EMPLOYEEID, REIMB_STATUS) " +  
+					"VALUES(?,?,?,?)";
 			PreparedStatement pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, r.getId());
-			pstmt.setDouble(2, r.getAmount());
-			pstmt.setString(3, r.getDescription());
-			pstmt.setInt(4, r.getEmployeeId().getId());
-			pstmt.setInt(5, r.getStatusId().getId());
-			pstmt.setInt(6, r.getResolverId().getId());
-			pstmt.executeQuery();
+			pstmt.setDouble(1, amount);
+			pstmt.setString(2, desc);
+			pstmt.setInt(3, id);
+			pstmt.setInt(4, 1);
+			return pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (IOException f) {
 			f.printStackTrace();
 		}
+		return -1;
 	}
 	
+	@Override
 	public void updateReimbursement(Reimbursement r, int status, int id) {
 		try(Connection con = ConnectionUtil.getConnection(filename)){
 			String sql = "UPDATE REIMBURSEMENTS " + 
@@ -54,6 +55,7 @@ public class ReimbursementDAOImpl implements ReimbursementDAO {
 		}
 	}
 	
+	@Override
 	public void deleteReimbursementById(int id) {
 		try(Connection con = ConnectionUtil.getConnection(filename)){
 			String sql = "DELETE FROM REIMBURSEMENTS " + 
@@ -68,6 +70,7 @@ public class ReimbursementDAOImpl implements ReimbursementDAO {
 		}
 	}
 	
+	@Override
 	public List<Reimbursement> getAllReimbursements(){
 		List<Reimbursement> r = new ArrayList<Reimbursement>();
 		try(Connection con = ConnectionUtil.getConnection(filename)){
@@ -93,7 +96,7 @@ public class ReimbursementDAOImpl implements ReimbursementDAO {
 	return r;
 	}
 	
-	
+	@Override
 	public Reimbursement getReimbursementById(int id) {
 		Reimbursement r = null;
 		try(Connection con = ConnectionUtil.getConnection(filename)){
@@ -118,6 +121,7 @@ public class ReimbursementDAOImpl implements ReimbursementDAO {
 	return r;
 	}
 	
+	@Override
 	public List<Reimbursement> getReimbursementsByEmpId(Employee em){
 		List<Reimbursement> list = new ArrayList<Reimbursement>();
 		try(Connection con = ConnectionUtil.getConnection(filename)){

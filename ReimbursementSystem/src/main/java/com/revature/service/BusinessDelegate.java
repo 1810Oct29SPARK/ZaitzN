@@ -40,8 +40,8 @@ public class BusinessDelegate {
 			
 		}
 		
-		public void addReimbursement(Reimbursement r) {
-			rd.addReimbursement(r);
+		public void addReimbursement(double amount, String desc, int id) {
+			rd.addReimbursement(amount, desc, id);
 			
 		}
 		public void updateReimbursement(Reimbursement r, int status, int employeeId) {

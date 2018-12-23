@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="ISO-8859-1">
-<title>Profile</title>
-<link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css" />
-<link rel="stylesheet" href="main.css">
+	<meta charset="ISO-8859-1">
+	<title>Profile</title>
+	<link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css" />
+	<link rel="stylesheet" href="main.css">
 </head>
+
 <body>
-	
-	<div class="container" id="grab">
+
+	<div class="container">
+		<div class="jumbotron text-center" id="grab">
+			<button class="btn btn-primary" id="reimbButton">Click to submit/see reimbursements</button>
+		</div>
 	</div>
-	<div class="container" id="hiddenReimb">
-		<div class="jumbotron">
-		
+	<div class="container">
+		<div class="jumbotron" id="hiddenReimb">
+			<form action="reimbursement" method="POST">
+				<input type="number" name="amount" class="form-control" placeholder="Enter Amount">
+				<input type="text" name="desc" class="form-control" placeholder="Enter Description">
+				<input type="submit" value="Submit Reimbursement" class="btn btn-primary">
+			</form>
 		</div>
 	</div>
 	<div class="container text-center" id="footLogout">
@@ -20,10 +29,9 @@
 			<input type="submit" value="logout" class="btn btn-light">
 		</form>
 	</div>
-	<script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-<script src="check.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	 crossorigin="anonymous"></script>
+	<script src="check.js"></script>
 </body>
+
 </html>

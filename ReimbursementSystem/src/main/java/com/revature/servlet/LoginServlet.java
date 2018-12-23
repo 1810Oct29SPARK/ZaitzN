@@ -56,6 +56,7 @@ public class LoginServlet extends HttpServlet {
 			resp.sendRedirect("profile");
 			
 		} else {
+			session.setAttribute("problem", "invalid credentials");
 			resp.sendRedirect("login");
 		}
 
