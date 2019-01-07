@@ -1,0 +1,54 @@
+<p>Databinding with Bears!</p>
+
+<div class="panel-heading">
+  <span>Interpolation</span>
+</div>
+<div class="panel-body">
+  <div class="list-group">
+    <div class="list-group-item">
+      Simple one-way databinding
+    </div>
+    <div class="list-group-item">
+      Name field in the first element of bears array: {{bears[0].name}}
+    </div>
+  </div>
+</div>
+
+<div class="panel-heading">
+  <span>Property and Event Binding</span>
+</div>
+<div class="panel-body">
+  <div class="list-group">
+    <div class="list-group-item">
+      Property binding: change attributes of a node with changes in a property. [attribute]
+    </div>
+    <div class="list-group-item">
+      Event binding: event handling via attributes of a node. (event)
+    </div>
+    <div class="list-group-item">
+      <div [ngStyle] = "objectStyle" (click) = "changeStyles()">
+        Click to toggle styles
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel-heading">
+  <span>Two-way Binding</span>
+</div>
+<div class="panel-body">
+  <div class="list-group">
+    <div class="list-group-item">
+      Tying together a value in the view with a value in the model [(ngModel)]
+    </div>
+    <div class="list-group-item">
+      <div class="form-group">
+        <input [(ngModel)]="twoWayValue" placeholder="Enter value here" class="form-control">
+      </div>
+      <div>
+        <span>Value Entered: {{twoWayValue}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+

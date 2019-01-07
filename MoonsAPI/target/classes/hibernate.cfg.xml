@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!-- the above specifies the DTD (Document Type Definition) for a Hibernate config file -->
+<!-- this file is considered "valid" if it conforms to the allowed elements listed in the DTD -->
+<!-- and XML file can be "well-formed" (correctly formatted XML) without being "valid" -->
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+		<property name="hibernate.current_session_context_class">thread</property>
+		<property name="hibernate.show_sql">true</property>
+		<!-- choose whether to start fresh ur update existing DDL -->
+		<!-- set to update by default -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<!-- locations of domain object mappings -->
+		<mapping class="com.revature.beans.Planet"></mapping>
+		<mapping class="com.revature.beans.Moon"></mapping>
+	</session-factory>
+</hibernate-configuration>
